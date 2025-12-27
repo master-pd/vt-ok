@@ -1,0 +1,178 @@
+{
+    "general": {
+        "welcome": "👋 ¡Bienvenido a TikTok Views Bot!",
+        "help": "📚 Ayuda",
+        "menu": "📱 Menú",
+        "back": "🔙 Atrás",
+        "cancel": "❌ Cancelar",
+        "confirm": "✅ Confirmar",
+        "loading": "⏳ Cargando...",
+        "success": "✅ ¡Éxito!",
+        "error": "❌ Error",
+        "warning": "⚠️ Advertencia",
+        "info": "ℹ️ Información"
+    },
+    
+    "start": {
+        "welcome_message": "🎬 *¡Bienvenido a TikTok Views Bot!*\n\n¡Potencia tus videos de TikTok con vistas reales! Nuestro servicio ofrece:\n\n✅ *Vistas reales de humanos*\n✅ *Altas tasas de retención*\n✅ *Inicio instantáneo*\n✅ *Soporte 24/7*\n\n¡Usa el menú de abajo para comenzar!",
+        "already_registered": "¡Bienvenido de nuevo, {name}! 🎉\n\nTu saldo: ${balance}\nTotal gastado: ${total_spent}\nVistas compradas: {views}",
+        "new_user": "¡Bienvenido {name}! 👋\n¡Te has registrado exitosamente!\n\n¡Comienza comprando vistas para tus videos de TikTok!"
+    },
+    
+    "menu": {
+        "buy_views": "🛒 Comprar Vistas",
+        "my_orders": "📋 Mis Pedidos",
+        "balance": "💰 Saldo",
+        "pricing": "💎 Precios",
+        "support": "💬 Soporte",
+        "settings": "⚙️ Configuración",
+        "admin": "👑 Panel Admin"
+    },
+    
+    "buy_views": {
+        "enter_url": "📤 *Envía URL del Video de TikTok*\n\nPor favor envía el enlace a tu video de TikTok.\n\nEjemplo: https://www.tiktok.com/@usuario/video/123456789",
+        "invalid_url": "❌ *URL Inválida*\n\nPor favor envía una URL válida de video de TikTok.\n\nEjemplo: https://www.tiktok.com/@usuario/video/123456789",
+        "select_views": "🎯 *Selecciona Cantidad de Vistas*\n\nElige cuántas vistas quieres comprar para:\n\n{video_info}\n\n*Vistas actuales:* {current_views}",
+        "select_package": "📦 *Selecciona Paquete*\n\nElige un paquete:\n\n{packages}",
+        "custom_views": "✏️ *Cantidad Personalizada*\n\nIngresa cantidad personalizada de vistas (100-1000000):",
+        "invalid_amount": "❌ *Cantidad Inválida*\n\nPor favor ingresa un número entre 100 y 1,000,000",
+        "confirm_order": "📝 *Confirmación de Pedido*\n\n*Video:* {video_url}\n*Vistas:* {view_count}\n*Precio:* ${price}\n*Tu saldo:* ${balance}\n\n¿Confirmar compra?",
+        "insufficient_balance": "❌ *Saldo Insuficiente*\n\nNecesitas ${required} pero tu saldo es ${balance}.\n\nPor favor deposita fondos primero.",
+        "order_created": "✅ *¡Pedido Creado!*\n\nID de Pedido: {order_id}\nVideo: {video_url}\nVistas: {view_count}\nPrecio: ${price}\n\n¡Las vistas comenzarán a entregarse pronto!",
+        "processing": "⏳ *Procesando Pedido...*"
+    },
+    
+    "pricing": {
+        "title": "💎 *Precios*\n\n*Paquetes Estándar:*\n{packages}\n\n*¡Cantidades personalizadas disponibles!*\n\n💡 *Consejo:* ¡Los paquetes más grandes tienen mejor valor!",
+        "package_item": "• {views} vistas - ${price} (${per_1000}/1k vistas)",
+        "per_1000": "por 1k vistas"
+    },
+    
+    "balance": {
+        "current_balance": "💰 *Tu Saldo:* ${balance}\n*Total Gastado:* ${total_spent}\n*Vistas Compradas:* {views}",
+        "deposit": "💳 *Depositar Fondos*\n\nSelecciona monto de depósito:",
+        "deposit_amounts": [
+            {"amount": 10, "text": "$10"},
+            {"amount": 25, "text": "$25"},
+            {"amount": 50, "text": "$50"},
+            {"amount": 100, "text": "$100"},
+            {"amount": 250, "text": "$250"},
+            {"amount": 500, "text": "$500"}
+        ],
+        "custom_deposit": "💵 *Monto Personalizado*\n\nIngresa monto de depósito ($5-$1000):",
+        "select_payment": "💳 *Selecciona Método de Pago*\n\nElige método de pago para ${amount}:",
+        "payment_methods": {
+            "crypto": "₿ Cripto",
+            "paypal": "💳 PayPal",
+            "card": "💳 Tarjeta"
+        },
+        "payment_instructions": {
+            "crypto": "₿ *Pago con Cripto*\n\nEnvía *{amount_crypto} {currency}* a:\n\n`{address}`\n\n*Red:* {network}\n*ID de Pago:* {payment_id}\n\n⏰ *Expira en:* {expires_in} minutos",
+            "paypal": "💳 *Pago con PayPal*\n\nHaz clic en el enlace para completar tu pago de ${amount}:\n\n{payment_link}",
+            "card": "💳 *Pago con Tarjeta*\n\nHaz clic en el enlace para completar tu pago de ${amount}:\n\n{payment_link}"
+        },
+        "payment_received": "✅ *¡Pago Recibido!*\n\n${amount} ha sido añadido a tu saldo.\n\nNuevo saldo: ${balance}"
+    },
+    
+    "orders": {
+        "title": "📋 *Tus Pedidos*\n\n{orders_list}",
+        "no_orders": "Aún no hay pedidos. ¡Compra tus primeras vistas!",
+        "order_item": "• *ID:* {order_id}\n  *Video:* {video_id}\n  *Vistas:* {view_count}/{delivered}\n  *Estado:* {status}\n  *Fecha:* {date}",
+        "order_status": {
+            "pending": "⏳ Pendiente",
+            "processing": "🔄 Procesando",
+            "delivering": "📤 Entregando",
+            "completed": "✅ Completado",
+            "failed": "❌ Fallido",
+            "cancelled": "🚫 Cancelado"
+        },
+        "order_details": "📄 *Detalles del Pedido*\n\n*ID:* {order_id}\n*Video:* {video_url}\n*Vistas Ordenadas:* {view_count}\n*Vistas Entregadas:* {delivered}\n*Tasa de Éxito:* {success_rate}%\n*Estado:* {status}\n*Precio:* ${price}\n*Creado:* {created_at}\n*Completado:* {completed_at}",
+        "refresh": "🔄 Actualizar"
+    },
+    
+    "support": {
+        "title": "💬 *Soporte*\n\n¿Necesitas ayuda? Contacta a nuestro equipo:\n\n📧 Email: support@tiktokviewsbot.com\n📱 Telegram: @tiktokviews_support\n\n¡O envía tu pregunta directamente y responderemos ASAP!",
+        "contact_admin": "👑 *Contactar Admin*\n\nEnvía tu mensaje al administrador:",
+        "message_sent": "✅ *¡Mensaje Enviado!*\n\nTu mensaje ha sido enviado al administrador.",
+        "faq": "❓ *Preguntas Frecuentes*\n\nP: ¿Son reales las vistas?\nR: Sí, entregamos vistas reales de humanos.\n\nP: ¿Cuánto tarda la entrega?\nR: Comienza instantáneamente, completa en 24-48 horas.\n\nP: ¿Puedo obtener reembolso?\nR: Reembolsos disponibles por vistas no entregadas.\n\nP: ¿Es seguro?\nR: 100% seguro, usamos métodos orgánicos."
+    },
+    
+    "settings": {
+        "title": "⚙️ *Configuración*\n\n*Idioma:* {language}\n*Notificaciones:* {notifications}\n\nCambiar configuración:",
+        "language": "🌐 Idioma",
+        "notifications": "🔔 Notificaciones",
+        "select_language": "Selecciona idioma:",
+        "language_changed": "✅ Idioma cambiado a {language}",
+        "notifications_on": "✅ Activadas",
+        "notifications_off": "🔇 Desactivadas",
+        "notifications_changed": "✅ Notificaciones {status}"
+    },
+    
+    "admin": {
+        "panel": "👑 *Panel de Administración*\n\n*Usuarios:* {users_count}\n*Pedidos:* {orders_count}\n*Ingresos:* ${revenue}\n*Activos:* {active_users}\n\nSelecciona acción:",
+        "statistics": "📊 Estadísticas",
+        "users": "👥 Usuarios",
+        "orders": "📋 Pedidos",
+        "payments": "💰 Pagos",
+        "system": "⚙️ Sistema",
+        "broadcast": "📢 Difusión",
+        "statistics_details": "📊 *Estadísticas*\n\n*Total Usuarios:* {total_users}\n*Nuevos Hoy:* {new_today}\n*Activos Hoy:* {active_today}\n\n*Total Pedidos:* {total_orders}\n*Pedidos de Hoy:* {today_orders}\n*Ingresos Hoy:* ${revenue_today}\n*Total Ingresos:* ${total_revenue}\n\n*Vistas Ordenadas:* {views_ordered}\n*Vistas Entregadas:* {views_delivered}\n*Tasa de Éxito:* {success_rate}%",
+        "user_list": "👥 *Usuarios* ({count})\n\n{users}",
+        "user_details": "👤 *Detalles de Usuario*\n\n*ID:* {user_id}\n*Telegram:* @{username}\n*Nombre:* {name}\n*Saldo:* ${balance}\n*Gastado:* ${spent}\n*Pedidos:* {orders}\n*Registrado:* {registered}\n*Última Vez:* {last_seen}\n*Estado:* {status}",
+        "order_list": "📋 *Pedidos* ({count})\n\n{orders}",
+        "order_actions": "🛠 *Acciones de Pedido*\n\nSelecciona acción para pedido {order_id}:",
+        "payment_list": "💰 *Pagos* ({count})\n\n{pagos}",
+        "system_status": "⚙️ *Estado del Sistema*\n\n*Bot:* {bot_status}\n*Base de Datos:* {db_status}\n*API:* {api_status}\n*Trabajadores:* {workers_status}\n\n*Memoria:* {memory_usage}\n*CPU:* {cpu_usage}\n*Tiempo Activo:* {uptime}",
+        "broadcast_message": "📢 *Mensaje de Difusión*\n\nIngresa mensaje para enviar a todos los usuarios:",
+        "broadcast_sent": "✅ *¡Difusión Enviada!*\n\nEnviado a {sent}/{total} usuarios.",
+        "user_actions": "🛠 *Acciones de Usuario*\n\nSelecciona acción para usuario {user_id}:"
+    },
+    
+    "errors": {
+        "generic": "❌ Ocurrió un error. Por favor intenta de nuevo.",
+        "not_found": "❌ No encontrado.",
+        "access_denied": "❌ Acceso denegado.",
+        "invalid_input": "❌ Entrada inválida.",
+        "service_unavailable": "❌ Servicio temporalmente no disponible. Por favor intenta más tarde.",
+        "maintenance": "🔧 Sistema en mantenimiento. Por favor intenta más tarde."
+    },
+    
+    "notifications": {
+        "order_started": "🚀 *Pedido Iniciado*\n\n¡El pedido {order_id} ha comenzado a entregar vistas!",
+        "order_progress": "📈 *Progreso del Pedido*\n\nPedido {order_id}:\n{delivered}/{total} vistas entregadas ({percentage}%)",
+        "order_completed": "🎉 *¡Pedido Completado!*\n\n¡El pedido {order_id} ha sido completado!\n\n*Vistas entregadas:* {delivered}/{total}\n*Tasa de éxito:* {success_rate}%",
+        "order_failed": "❌ *Pedido Fallido*\n\nEl pedido {order_id} ha fallado.\n\nRazón: {reason}\n\nSe ha emitido reembolso.",
+        "payment_received": "💰 *Pago Recibido*\n\n${amount} ha sido añadido a tu cuenta.\n\nNuevo saldo: ${balance}",
+        "deposit_received": "💳 *Depósito Recibido*\n\nDepósito de ${amount} confirmado.\n\nNuevo saldo: ${balance}"
+    },
+    
+    "buttons": {
+        "buy_views": "🛒 Comprar Vistas",
+        "my_orders": "📋 Mis Pedidos",
+        "balance": "💰 Saldo",
+        "deposit": "💳 Depositar",
+        "pricing": "💎 Precios",
+        "support": "💬 Soporte",
+        "settings": "⚙️ Configuración",
+        "admin": "👑 Admin",
+        "back": "🔙 Atrás",
+        "cancel": "❌ Cancelar",
+        "confirm": "✅ Confirmar",
+        "next": "➡️ Siguiente",
+        "previous": "⬅️ Anterior",
+        "refresh": "🔄 Actualizar",
+        "view_details": "👁 Ver",
+        "edit": "✏️ Editar",
+        "delete": "🗑 Eliminar",
+        "approve": "✅ Aprobar",
+        "reject": "❌ Rechazar",
+        "pause": "⏸ Pausar",
+        "resume": "▶️ Reanudar",
+        "statistics": "📊 Estadísticas",
+        "broadcast": "📢 Difusión",
+        "system": "⚙️ Sistema",
+        "users": "👥 Usuarios",
+        "orders": "📋 Pedidos",
+        "payments": "💰 Pagos"
+    }
+}

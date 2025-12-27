@@ -1,1 +1,178 @@
-
+{
+    "general": {
+        "welcome": "👋 Welcome to VT Views Bot!",
+        "help": "📚 Help",
+        "menu": "📱 Menu",
+        "back": "🔙 Back",
+        "cancel": "❌ Cancel",
+        "confirm": "✅ Confirm",
+        "loading": "⏳ Loading...",
+        "success": "✅ Success!",
+        "error": "❌ Error",
+        "warning": "⚠️ Warning",
+        "info": "ℹ️ Info"
+    },
+    
+    "start": {
+        "welcome_message": "🎬 *Welcome to TikTok Views Bot!*\n\nBoost your TikTok videos with real views! Our service provides:\n\n✅ *Real Human Views*\n✅ *High Retention Rates*\n✅ *Instant Start*\n✅ *24/7 Support*\n\nUse the menu below to get started!",
+        "already_registered": "Welcome back, {name}! 🎉\n\nYour balance: ${balance}\nTotal spent: ${total_spent}\nViews purchased: {views}",
+        "new_user": "Welcome {name}! 👋\nYou've been registered successfully!\n\nGet started by purchasing views for your TikTok videos!"
+    },
+    
+    "menu": {
+        "buy_views": "🛒 Buy Views",
+        "my_orders": "📋 My Orders",
+        "balance": "💰 Balance",
+        "pricing": "💎 Pricing",
+        "support": "💬 Support",
+        "settings": "⚙️ Settings",
+        "admin": "👑 Admin Panel"
+    },
+    
+    "buy_views": {
+        "enter_url": "📤 *Send TikTok Video URL*\n\nPlease send the link to your TikTok video.\n\nExample: https://www.tiktok.com/@username/video/123456789",
+        "invalid_url": "❌ *Invalid URL*\n\nPlease send a valid TikTok video URL.\n\nExample: https://www.tiktok.com/@username/video/123456789",
+        "select_views": "🎯 *Select View Count*\n\nChoose how many views you want to purchase for:\n\n{video_info}\n\n*Current views:* {current_views}",
+        "select_package": "📦 *Select Package*\n\nChoose a package:\n\n{packages}",
+        "custom_views": "✏️ *Custom Amount*\n\nEnter custom view count (100-1000000):",
+        "invalid_amount": "❌ *Invalid Amount*\n\nPlease enter a number between 100 and 1,000,000",
+        "confirm_order": "📝 *Order Confirmation*\n\n*Video:* {video_url}\n*Views:* {view_count}\n*Price:* ${price}\n*Your balance:* ${balance}\n\nConfirm purchase?",
+        "insufficient_balance": "❌ *Insufficient Balance*\n\nYou need ${required} but your balance is ${balance}.\n\nPlease deposit funds first.",
+        "order_created": "✅ *Order Created!*\n\nOrder ID: {order_id}\nVideo: {video_url}\nViews: {view_count}\nPrice: ${price}\n\nViews will start delivering shortly!",
+        "processing": "⏳ *Processing Order...*"
+    },
+    
+    "pricing": {
+        "title": "💎 *Pricing*\n\n*Standard Packages:*\n{packages}\n\n*Custom amounts available!*\n\n💡 *Tip:* Larger packages have better value!",
+        "package_item": "• {views} views - ${price} (${per_1000}/1k)",
+        "per_1000": "per 1k views"
+    },
+    
+    "balance": {
+        "current_balance": "💰 *Your Balance:* ${balance}\n*Total Spent:* ${total_spent}\n*Views Purchased:* {views}",
+        "deposit": "💳 *Deposit Funds*\n\nSelect deposit amount:",
+        "deposit_amounts": [
+            {"amount": 10, "text": "$10"},
+            {"amount": 25, "text": "$25"},
+            {"amount": 50, "text": "$50"},
+            {"amount": 100, "text": "$100"},
+            {"amount": 250, "text": "$250"},
+            {"amount": 500, "text": "$500"}
+        ],
+        "custom_deposit": "💵 *Custom Amount*\n\nEnter deposit amount ($5-$1000):",
+        "select_payment": "💳 *Select Payment Method*\n\nChoose payment method for ${amount}:",
+        "payment_methods": {
+            "crypto": "₿ Crypto",
+            "paypal": "💳 PayPal",
+            "card": "💳 Credit Card"
+        },
+        "payment_instructions": {
+            "crypto": "₿ *Crypto Payment*\n\nSend *{amount_crypto} {currency}* to:\n\n`{address}`\n\n*Network:* {network}\n*Payment ID:* {payment_id}\n\n⏰ *Expires in:* {expires_in} minutes",
+            "paypal": "💳 *PayPal Payment*\n\nClick the link below to complete your payment of ${amount}:\n\n{payment_link}",
+            "card": "💳 *Card Payment*\n\nClick the link below to complete your payment of ${amount}:\n\n{payment_link}"
+        },
+        "payment_received": "✅ *Payment Received!*\n\n${amount} has been added to your balance.\n\nNew balance: ${balance}"
+    },
+    
+    "orders": {
+        "title": "📋 *Your Orders*\n\n{orders_list}",
+        "no_orders": "No orders yet. Buy your first views!",
+        "order_item": "• *ID:* {order_id}\n  *Video:* {video_id}\n  *Views:* {view_count}/{delivered}\n  *Status:* {status}\n  *Date:* {date}",
+        "order_status": {
+            "pending": "⏳ Pending",
+            "processing": "🔄 Processing",
+            "delivering": "📤 Delivering",
+            "completed": "✅ Completed",
+            "failed": "❌ Failed",
+            "cancelled": "🚫 Cancelled"
+        },
+        "order_details": "📄 *Order Details*\n\n*ID:* {order_id}\n*Video:* {video_url}\n*Views Ordered:* {view_count}\n*Views Delivered:* {delivered}\n*Success Rate:* {success_rate}%\n*Status:* {status}\n*Price:* ${price}\n*Created:* {created_at}\n*Completed:* {completed_at}",
+        "refresh": "🔄 Refresh"
+    },
+    
+    "support": {
+        "title": "💬 *Support*\n\nNeed help? Contact our support team:\n\n📧 Email: support@tiktokviewsbot.com\n📱 Telegram: @tiktokviews_support\n\nOr send your question directly and we'll reply ASAP!",
+        "contact_admin": "👑 *Contact Admin*\n\nSend your message to admin:",
+        "message_sent": "✅ *Message Sent!*\n\nYour message has been forwarded to admin.",
+        "faq": "❓ *FAQ*\n\nQ: Are the views real?\nA: Yes, we deliver real human views.\n\nQ: How long does delivery take?\nA: Starts instantly, completes in 24-48 hours.\n\nQ: Can I get refund?\nA: Refunds available for undelivered views.\n\nQ: Is this safe?\nA: 100% safe, we use organic methods."
+    },
+    
+    "settings": {
+        "title": "⚙️ *Settings*\n\n*Language:* {language}\n*Notifications:* {notifications}\n\nChange settings:",
+        "language": "🌐 Language",
+        "notifications": "🔔 Notifications",
+        "select_language": "Select language:",
+        "language_changed": "✅ Language changed to {language}",
+        "notifications_on": "✅ On",
+        "notifications_off": "🔇 Off",
+        "notifications_changed": "✅ Notifications {status}"
+    },
+    
+    "admin": {
+        "panel": "👑 *Admin Panel*\n\n*Users:* {users_count}\n*Orders:* {orders_count}\n*Revenue:* ${revenue}\n*Active:* {active_users}\n\nSelect action:",
+        "statistics": "📊 Statistics",
+        "users": "👥 Users",
+        "orders": "📋 Orders",
+        "payments": "💰 Payments",
+        "system": "⚙️ System",
+        "broadcast": "📢 Broadcast",
+        "statistics_details": "📊 *Statistics*\n\n*Total Users:* {total_users}\n*New Today:* {new_today}\n*Active Today:* {active_today}\n\n*Total Orders:* {total_orders}\n*Today's Orders:* {today_orders}\n*Revenue Today:* ${revenue_today}\n*Total Revenue:* ${total_revenue}\n\n*Views Ordered:* {views_ordered}\n*Views Delivered:* {views_delivered}\n*Success Rate:* {success_rate}%",
+        "user_list": "👥 *Users* ({count})\n\n{users}",
+        "user_details": "👤 *User Details*\n\n*ID:* {user_id}\n*Telegram:* @{username}\n*Name:* {name}\n*Balance:* ${balance}\n*Spent:* ${spent}\n*Orders:* {orders}\n*Registered:* {registered}\n*Last Seen:* {last_seen}\n*Status:* {status}",
+        "order_list": "📋 *Orders* ({count})\n\n{orders}",
+        "order_actions": "🛠 *Order Actions*\n\nSelect action for order {order_id}:",
+        "payment_list": "💰 *Payments* ({count})\n\n{payments}",
+        "system_status": "⚙️ *System Status*\n\n*Bot:* {bot_status}\n*Database:* {db_status}\n*API:* {api_status}\n*Workers:* {workers_status}\n\n*Memory:* {memory_usage}\n*CPU:* {cpu_usage}\n*Uptime:* {uptime}",
+        "broadcast_message": "📢 *Broadcast Message*\n\nEnter message to send to all users:",
+        "broadcast_sent": "✅ *Broadcast Sent!*\n\nSent to {sent}/{total} users.",
+        "user_actions": "🛠 *User Actions*\n\nSelect action for user {user_id}:"
+    },
+    
+    "errors": {
+        "generic": "❌ An error occurred. Please try again.",
+        "not_found": "❌ Not found.",
+        "access_denied": "❌ Access denied.",
+        "invalid_input": "❌ Invalid input.",
+        "service_unavailable": "❌ Service temporarily unavailable. Please try again later.",
+        "maintenance": "🔧 System under maintenance. Please try again later."
+    },
+    
+    "notifications": {
+        "order_started": "🚀 *Order Started*\n\nOrder {order_id} has started delivering views!",
+        "order_progress": "📈 *Order Progress*\n\nOrder {order_id}:\n{delivered}/{total} views delivered ({percentage}%)",
+        "order_completed": "🎉 *Order Completed!*\n\nOrder {order_id} has been completed!\n\n*Views delivered:* {delivered}/{total}\n*Success rate:* {success_rate}%",
+        "order_failed": "❌ *Order Failed*\n\nOrder {order_id} has failed.\n\nReason: {reason}\n\nRefund has been issued.",
+        "payment_received": "💰 *Payment Received*\n\n${amount} has been added to your account.\n\nNew balance: ${balance}",
+        "deposit_received": "💳 *Deposit Received*\n\n${amount} deposit confirmed.\n\nNew balance: ${balance}"
+    },
+    
+    "buttons": {
+        "buy_views": "🛒 Buy Views",
+        "my_orders": "📋 My Orders",
+        "balance": "💰 Balance",
+        "deposit": "💳 Deposit",
+        "pricing": "💎 Pricing",
+        "support": "💬 Support",
+        "settings": "⚙️ Settings",
+        "admin": "👑 Admin",
+        "back": "🔙 Back",
+        "cancel": "❌ Cancel",
+        "confirm": "✅ Confirm",
+        "next": "➡️ Next",
+        "previous": "⬅️ Previous",
+        "refresh": "🔄 Refresh",
+        "view_details": "👁 View",
+        "edit": "✏️ Edit",
+        "delete": "🗑 Delete",
+        "approve": "✅ Approve",
+        "reject": "❌ Reject",
+        "pause": "⏸ Pause",
+        "resume": "▶️ Resume",
+        "statistics": "📊 Stats",
+        "broadcast": "📢 Broadcast",
+        "system": "⚙️ System",
+        "users": "👥 Users",
+        "orders": "📋 Orders",
+        "payments": "💰 Payments"
+    }
+}
