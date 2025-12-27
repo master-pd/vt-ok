@@ -1,0 +1,221 @@
+# VT ULTRA PRO - Main Configuration File
+# Version: 1.0.0 Ultra Pro
+
+app:
+  name: "VT ULTRA PRO"
+  version: "1.0.0 Ultra Pro"
+  environment: "production"  # development, staging, production
+  debug: false
+  secret_key: "change-this-in-production"
+  timezone: "UTC"
+  language: "en"
+  
+database:
+  type: "sqlite"  # sqlite, postgresql, mysql
+  path: "database/vt_ultra_pro.db"
+  host: "localhost"
+  port: 5432
+  name: "vt_ultra_pro"
+  username: ""
+  password: ""
+  pool_size: 10
+  max_overflow: 20
+  echo_queries: false
+
+telegram:
+  bot_token: "YOUR_TELEGRAM_BOT_TOKEN"
+  admin_ids:
+    - 123456789  # Replace with your Telegram ID
+  webhook_url: "https://yourdomain.com/webhook"
+  webhook_port: 8443
+  max_connections: 100
+  allowed_updates:
+    - "message"
+    - "callback_query"
+    - "inline_query"
+  
+tiktok:
+  api_timeout: 30
+  max_retries: 3
+  retry_delay: 5
+  view_methods:
+    - "browser_automation"
+    - "api_integration"
+    - "cloud_view"
+    - "hybrid_ai"
+  default_method: "hybrid_ai"
+  quality_levels:
+    basic:
+      success_rate: 70
+      speed: "slow"
+      price_multiplier: 0.5
+    standard:
+      success_rate: 80
+      speed: "normal"
+      price_multiplier: 1.0
+    high:
+      success_rate: 90
+      speed: "fast"
+      price_multiplier: 1.5
+    premium:
+      success_rate: 95
+      speed: "express"
+      price_multiplier: 3.0
+
+proxy:
+  enabled: true
+  rotation_interval: 300  # seconds
+  max_proxies_per_request: 5
+  proxy_sources:
+    - "https://proxy-provider-1.com/list"
+    - "https://proxy-provider-2.com/list"
+  proxy_test_url: "https://www.tiktok.com"
+  proxy_test_timeout: 10
+
+security:
+  rate_limit:
+    enabled: true
+    requests_per_minute: 60
+    requests_per_hour: 1000
+    requests_per_day: 10000
+  api_keys:
+    required: true
+    rotation_days: 30
+  ssl:
+    enabled: true
+    certificate_path: "/etc/ssl/certs/certificate.crt"
+    private_key_path: "/etc/ssl/private/private.key"
+  cors:
+    enabled: true
+    allowed_origins:
+      - "https://yourdomain.com"
+      - "https://admin.yourdomain.com"
+
+payment:
+  currencies:
+    - "USD"
+    - "EUR"
+    - "GBP"
+    - "BTC"
+    - "ETH"
+  default_currency: "USD"
+  providers:
+    stripe:
+      enabled: true
+      public_key: "pk_test_..."
+      secret_key: "sk_test_..."
+    paypal:
+      enabled: false
+      client_id: ""
+      client_secret: ""
+    crypto:
+      enabled: true
+      bitcoin_address: "3ABCDEF..."
+      ethereum_address: "0xABCDEF..."
+  commission_rate: 0.05  # 5% commission
+  minimum_deposit: 5.0
+  maximum_deposit: 10000.0
+
+worker:
+  max_workers: 10
+  worker_timeout: 300  # seconds
+  task_retry_limit: 3
+  queue_size: 1000
+  monitoring_interval: 30
+  auto_scale: true
+  scale_up_threshold: 80  # CPU percentage
+  scale_down_threshold: 30
+
+monitoring:
+  enabled: true
+  metrics_interval: 60  # seconds
+  alerting:
+    enabled: true
+    email_alerts: true
+    telegram_alerts: true
+    slack_alerts: false
+  health_check_interval: 300
+  log_retention_days: 30
+  performance_tracking: true
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file:
+    enabled: true
+    path: "logs/app.log"
+    max_size_mb: 100
+    backup_count: 5
+  console:
+    enabled: true
+  telegram:
+    enabled: false
+    chat_id: ""
+
+api:
+  enabled: true
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  rate_limit_per_minute: 120
+  docs_enabled: true  # Enable API documentation
+  cors_enabled: true
+
+web_app:
+  enabled: true
+  host: "0.0.0.0"
+  port: 8080
+  session_secret: "web-app-secret-key"
+  session_lifetime_hours: 24
+  static_files_path: "static"
+  templates_path: "templates"
+
+admin_panel:
+  enabled: true
+  username: "admin"
+  password_hash: "changeme"  # Change this to a bcrypt hash
+  session_timeout_minutes: 60
+  ip_whitelist:
+    - "127.0.0.1"
+    - "192.168.1.0/24"
+
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  location: "backups/"
+  cloud_backup: false
+  aws_s3_bucket: ""
+  gcp_bucket: ""
+
+maintenance:
+  mode: false
+  message: "System under maintenance. Please try again later."
+  scheduled_maintenance:
+    - start: "2024-01-01 02:00:00"
+      end: "2024-01-01 04:00:00"
+      reason: "Database migration"
+
+features:
+  auto_refill: true
+  bulk_discounts: true
+  referral_program: true
+  affiliate_system: true
+  multi_language: true
+  dark_mode: true
+  realtime_updates: true
+  webhook_support: true
+
+pricing:
+  base_price_per_1000_views: 2.99
+  currency: "USD"
+  discounts:
+    bulk_5000: 0.10  # 10% discount for 5000+ views
+    bulk_10000: 0.15
+    bulk_50000: 0.20
+    bulk_100000: 0.25
+  speed_multipliers:
+    slow: 0.8
+    normal: 1.0
+    fast: 1.5
+    express: 2.0

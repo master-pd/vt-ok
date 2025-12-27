@@ -1,0 +1,50 @@
+আরে আমার কাছে অলরেডি সব ফাইল আছে 
+আমা স
+শুধু এই ফাইল গুলো লাগবে 
+
+{
+  "total_files": ,
+  "files_by_category": {
+   
+
+    "admin_panel": [
+      "admin_panel/log_viewer.py"
+    ],
+    
+    "utils": [
+      "utils/account_manager.py"
+    ],
+      "scripts/backup.py",
+      "scripts/cleanup.py",
+      "scripts/auto_update.py"
+    ],
+    
+    "migrations": [
+      "alembic/versions/001_initial_migration.py",
+      "alembic/versions/002_add_analytics_tables.py",
+      "alembic/versions/003_add_payment_tables.py"
+    ],
+    
+    "locales": [
+      "locales/en.json",
+      "locales/es.json",
+      "locales/ru.json"
+    ],
+    
+    "static_files": [
+      "static/css/style.css",
+      "static/js/app.js",
+      "static/images/logo.png"
+    ],
+    
+    "templates": [
+      "templates/admin_dashboard.html",
+      "templates/payment_success.html",
+      "templates/error_page.html"
+    ]
+  },
+  
+
+
+Amar shudhu ei file gula lagbe
+ Baki file Amar Kase ase
