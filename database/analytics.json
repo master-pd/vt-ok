@@ -1,0 +1,174 @@
+{
+  "analytics_config": {
+    "tracking_enabled": true,
+    "data_retention_days": 365,
+    "privacy_compliant": true,
+    "anonymize_ip": true,
+    "collect_user_agent": true,
+    "collect_referrer": true,
+    "collect_location": false
+  },
+  "metrics": {
+    "user_metrics": [
+      "total_users",
+      "active_users_daily",
+      "active_users_weekly",
+      "active_users_monthly",
+      "new_users_daily",
+      "user_retention_rate",
+      "churn_rate",
+      "user_growth_rate"
+    ],
+    "order_metrics": [
+      "total_orders",
+      "orders_daily",
+      "orders_weekly",
+      "orders_monthly",
+      "order_conversion_rate",
+      "average_order_value",
+      "revenue_daily",
+      "revenue_weekly",
+      "revenue_monthly",
+      "refund_rate",
+      "success_rate"
+    ],
+    "performance_metrics": [
+      "average_response_time",
+      "error_rate",
+      "uptime_percentage",
+      "system_load",
+      "memory_usage",
+      "cpu_usage",
+      "disk_usage",
+      "network_traffic"
+    ],
+    "business_metrics": [
+      "customer_acquisition_cost",
+      "lifetime_value",
+      "return_on_investment",
+      "profit_margin",
+      "break_even_point"
+    ]
+  },
+  "dashboard_widgets": [
+    {
+      "id": "revenue_overview",
+      "title": "Revenue Overview",
+      "type": "line_chart",
+      "metrics": ["revenue_daily", "revenue_weekly"],
+      "refresh_interval": 300
+    },
+    {
+      "id": "user_activity",
+      "title": "User Activity",
+      "type": "bar_chart",
+      "metrics": ["active_users_daily", "new_users_daily"],
+      "refresh_interval": 300
+    },
+    {
+      "id": "order_stats",
+      "title": "Order Statistics",
+      "type": "pie_chart",
+      "metrics": ["completed_orders", "pending_orders", "failed_orders"],
+      "refresh_interval": 300
+    },
+    {
+      "id": "system_health",
+      "title": "System Health",
+      "type": "gauge",
+      "metrics": ["cpu_usage", "memory_usage", "disk_usage"],
+      "refresh_interval": 60
+    },
+    {
+      "id": "top_performers",
+      "title": "Top Performing Videos",
+      "type": "table",
+      "metrics": ["video_success_rate", "video_views_delivered"],
+      "refresh_interval": 600
+    }
+  ],
+  "reports": {
+    "daily_report": {
+      "enabled": true,
+      "schedule": "06:00",
+      "recipients": ["admin@vtultrapro.com"],
+      "metrics": [
+        "new_users_daily",
+        "active_users_daily",
+        "orders_daily",
+        "revenue_daily",
+        "success_rate_daily"
+      ]
+    },
+    "weekly_report": {
+      "enabled": true,
+      "schedule": "monday 08:00",
+      "recipients": ["admin@vtultrapro.com", "manager@vtultrapro.com"],
+      "metrics": [
+        "user_growth_weekly",
+        "revenue_weekly",
+        "order_trends_weekly",
+        "performance_metrics_weekly"
+      ]
+    },
+    "monthly_report": {
+      "enabled": true,
+      "schedule": "first day 09:00",
+      "recipients": ["admin@vtultrapro.com", "ceo@vtultrapro.com"],
+      "metrics": [
+        "financial_summary_monthly",
+        "user_analytics_monthly",
+        "performance_review_monthly",
+        "business_insights_monthly"
+      ]
+    }
+  },
+  "analytics_events": [
+    {
+      "event_name": "user_registered",
+      "tracking_enabled": true,
+      "properties": ["user_id", "registration_method", "referral_source"]
+    },
+    {
+      "event_name": "order_created",
+      "tracking_enabled": true,
+      "properties": ["order_id", "user_id", "video_url", "target_views", "price"]
+    },
+    {
+      "event_name": "order_completed",
+      "tracking_enabled": true,
+      "properties": ["order_id", "delivered_views", "success_rate", "completion_time"]
+    },
+    {
+      "event_name": "payment_processed",
+      "tracking_enabled": true,
+      "properties": ["payment_id", "order_id", "amount", "payment_method", "status"]
+    },
+    {
+      "event_name": "user_login",
+      "tracking_enabled": true,
+      "properties": ["user_id", "login_method", "device_type"]
+    }
+  ],
+  "data_export": {
+    "formats": ["csv", "json", "excel"],
+    "max_rows_per_export": 100000,
+    "export_retention_days": 30,
+    "scheduled_exports": [
+      {
+        "name": "daily_user_export",
+        "schedule": "daily 04:00",
+        "format": "csv",
+        "recipients": ["analytics@vtultrapro.com"]
+      }
+    ]
+  },
+  "privacy_settings": {
+    "gdpr_compliant": true,
+    "ccpa_compliant": true,
+    "data_deletion_enabled": true,
+    "data_export_enabled": true,
+    "cookie_consent_required": true,
+    "privacy_policy_url": "https://vtultrapro.com/privacy"
+  }
+}
