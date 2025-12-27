@@ -1,0 +1,17 @@
+[Unit]
+Description=TikTok Views Bot
+After=network.target postgresql.service redis.service
+
+[Service]
+Type=simple
+User=tiktok
+Group=tiktok
+WorkingDirectory=/opt/tiktok-views-bot
+Environment=PYTHONPATH=/opt/tiktok-views-bot
+Environment=DATABASE_URL=postgresql://tiktok_user:password@localhost/tiktok_bot
+ExecStart=/opt/tiktok-views-bot/venv/bin/python main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
