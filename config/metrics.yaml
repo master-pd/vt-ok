@@ -1,0 +1,11 @@
+metrics:
+  enabled: true
+  port: 9091
+  endpoint: /metrics
+  
+  collect:
+    - orders_processed
+    - views_delivered
+    - success_rate
+    - user_activity
+    - system_resources

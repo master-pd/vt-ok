@@ -1,0 +1,40 @@
+payments:
+  enabled_methods:
+    - crypto
+    - paypal
+    - stripe
+  
+  currency: "USD"
+  min_deposit: 5.00
+  max_deposit: 10000.00
+  
+  crypto:
+    bitcoin:
+      enabled: true
+      confirmations_required: 3
+      network_fee: 0.0005
+    
+    ethereum:
+      enabled: true
+      confirmations_required: 12
+      network_fee: 0.001
+    
+    usdt:
+      enabled: true
+      confirmations_required: 12
+      network_fee: 1.0
+  
+  paypal:
+    client_id: "your_client_id"
+    client_secret: "your_client_secret"
+    environment: "sandbox"  # or "live"
+    webhook_id: "your_webhook_id"
+  
+  stripe:
+    publishable_key: "pk_test_..."
+    secret_key: "sk_test_..."
+    webhook_secret: "whsec_..."
+  
+  exchange_rate:
+    provider: "coinbase"  # or "binance", "coingecko"
+    update_interval: 60  # seconds

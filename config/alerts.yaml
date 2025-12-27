@@ -1,0 +1,26 @@
+alerts:
+  telegram:
+    enabled: true
+    chat_id: "-1001234567890"
+    
+  email:
+    enabled: true
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    username: "alerts@yourdomain.com"
+    password: "your_password"
+    
+  webhook:
+    enabled: true
+    url: "https://hooks.slack.com/services/..."
+    
+  triggers:
+    - metric: "success_rate"
+      condition: "< 80"
+      duration: "5m"
+      severity: "critical"
+      
+    - metric: "system_memory_usage"
+      condition: "> 90"
+      duration: "2m"
+      severity: "warning"

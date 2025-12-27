@@ -1,0 +1,212 @@
+{
+  "target_config": {
+    "max_videos_per_user": 100,
+    "max_views_per_video": 1000000,
+    "min_views_per_order": 100,
+    "max_views_per_order": 100000,
+    "video_validation_enabled": true,
+    "duplicate_check_enabled": true,
+    "content_safety_check": true,
+    "auto_blacklist_sensitive": true
+  },
+  
+  "video_categories": {
+    "entertainment": {
+      "priority": 1,
+      "success_rate": 90,
+      "recommended_views": 1000,
+      "tags": ["funny", "dance", "comedy", "music", "challenge"]
+    },
+    "education": {
+      "priority": 2,
+      "success_rate": 85,
+      "recommended_views": 500,
+      "tags": ["tutorial", "howto", "learning", "knowledge", "tips"]
+    },
+    "gaming": {
+      "priority": 1,
+      "success_rate": 92,
+      "recommended_views": 2000,
+      "tags": ["gameplay", "esports", "streaming", "montage", "review"]
+    },
+    "beauty": {
+      "priority": 2,
+      "success_rate": 88,
+      "recommended_views": 1500,
+      "tags": ["makeup", "skincare", "fashion", "style", "transformation"]
+    },
+    "cooking": {
+      "priority": 3,
+      "success_rate": 87,
+      "recommended_views": 800,
+      "tags": ["recipe", "food", "cooking", "baking", "kitchen"]
+    },
+    "fitness": {
+      "priority": 2,
+      "success_rate": 86,
+      "recommended_views": 1200,
+      "tags": ["workout", "health", "exercise", "gym", "wellness"]
+    }
+  },
+  
+  "target_strategies": {
+    "gradual_increase": {
+      "enabled": true,
+      "description": "Slow and steady view increase over time",
+      "success_rate": 95,
+      "detection_risk": "low",
+      "recommended_for": ["long_term", "organic_growth"]
+    },
+    "burst_views": {
+      "enabled": true,
+      "description": "Rapid view delivery in short time",
+      "success_rate": 85,
+      "detection_risk": "medium",
+      "recommended_for": ["launch", "trending", "limited_time"]
+    },
+    "scheduled_delivery": {
+      "enabled": true,
+      "description": "Views delivered based on schedule",
+      "success_rate": 90,
+      "detection_risk": "low",
+      "recommended_for": ["timezone_targeting", "peak_hours"]
+    },
+    "geo_targeted": {
+      "enabled": true,
+      "description": "Views from specific geographic regions",
+      "success_rate": 88,
+      "detection_risk": "low",
+      "recommended_for": ["local_business", "regional_content"]
+    }
+  },
+  
+  "sample_targets": [
+    {
+      "video_id": "tiktok_001",
+      "url": "https://www.tiktok.com/@username/video/1234567890123456789",
+      "category": "entertainment",
+      "current_views": 1500,
+      "target_views": 10000,
+      "strategy": "gradual_increase",
+      "priority": "high",
+      "status": "active",
+      "start_date": "2024-01-01",
+      "end_date": "2024-01-07",
+      "success_rate": 92,
+      "delivered_views": 4500
+    },
+    {
+      "video_id": "tiktok_002",
+      "url": "https://www.tiktok.com/@business/video/9876543210987654321",
+      "category": "education",
+      "current_views": 500,
+      "target_views": 5000,
+      "strategy": "burst_views",
+      "priority": "medium",
+      "status": "completed",
+      "start_date": "2024-01-05",
+      "end_date": "2024-01-06",
+      "success_rate": 87,
+      "delivered_views": 4500
+    },
+    {
+      "video_id": "tiktok_003",
+      "url": "https://www.tiktok.com/@gamer/video/5555555555555555555",
+      "category": "gaming",
+      "current_views": 10000,
+      "target_views": 50000,
+      "strategy": "scheduled_delivery",
+      "priority": "high",
+      "status": "active",
+      "start_date": "2024-01-10",
+      "end_date": "2024-01-20",
+      "success_rate": 94,
+      "delivered_views": 25000
+    },
+    {
+      "video_id": "tiktok_004",
+      "url": "https://www.tiktok.com/@chef/video/1111111111111111111",
+      "category": "cooking",
+      "current_views": 200,
+      "target_views": 2000,
+      "strategy": "geo_targeted",
+      "priority": "low",
+      "status": "pending",
+      "start_date": "2024-01-15",
+      "end_date": "2024-01-22",
+      "success_rate": 0,
+      "delivered_views": 0
+    }
+  ],
+  
+  "quality_metrics": {
+    "view_retention": {
+      "minimum": 30,
+      "target": 60,
+      "excellent": 80
+    },
+    "engagement_rate": {
+      "minimum": 2,
+      "target": 5,
+      "excellent": 10
+    },
+    "completion_rate": {
+      "minimum": 40,
+      "target": 60,
+      "excellent": 80
+    },
+    "organic_growth": {
+      "minimum": 10,
+      "target": 25,
+      "excellent": 50
+    }
+  },
+  
+  "safety_filters": {
+    "blocked_categories": [
+      "explicit_content",
+      "violence",
+      "hate_speech",
+      "illegal_activities",
+      "scams",
+      "misinformation"
+    ],
+    "age_restricted": false,
+    "copyright_check": true,
+    "community_guidelines": true,
+    "auto_review_threshold": 50000
+  },
+  
+  "analytics_tracking": {
+    "tracked_metrics": [
+      "view_growth",
+      "engagement_rate",
+      "audience_retention",
+      "peak_view_times",
+      "geographic_distribution",
+      "device_breakdown",
+      "referral_sources"
+    ],
+    "reporting": {
+      "daily_report": true,
+      "weekly_summary": true,
+      "completion_report": true,
+      "comparison_analytics": true
+    }
+  },
+  
+  "optimization_settings": {
+    "auto_optimize": true,
+    "optimization_interval": 24,
+    "factors_considered": [
+      "time_of_day",
+      "day_of_week",
+      "content_category",
+      "audience_demographics",
+      "previous_performance"
+    ],
+    "a_b_testing": true,
+    "test_groups": 3,
+    "test_duration": 48
+  }
+}

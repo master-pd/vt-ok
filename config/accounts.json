@@ -1,1 +1,154 @@
-
+{
+  "account_config": {
+    "max_accounts_per_user": 5,
+    "account_rotation_enabled": true,
+    "rotation_interval_hours": 24,
+    "account_verification_required": true,
+    "verification_method": "email",
+    "default_balance": 0.0,
+    "auto_topup_enabled": false,
+    "topup_threshold": 10.0,
+    "topup_amount": 50.0
+  },
+  
+  "account_tiers": {
+    "free": {
+      "max_concurrent_orders": 1,
+      "max_views_per_day": 100,
+      "features": ["basic_support", "email_verification"],
+      "price": 0.0
+    },
+    "basic": {
+      "max_concurrent_orders": 3,
+      "max_views_per_day": 1000,
+      "features": ["priority_support", "phone_verification", "api_access"],
+      "monthly_price": 9.99
+    },
+    "pro": {
+      "max_concurrent_orders": 10,
+      "max_views_per_day": 10000,
+      "features": ["24/7_support", "advanced_analytics", "custom_integration"],
+      "monthly_price": 29.99
+    },
+    "enterprise": {
+      "max_concurrent_orders": 50,
+      "max_views_per_day": 100000,
+      "features": ["dedicated_account_manager", "white_label", "sla"],
+      "monthly_price": 99.99
+    }
+  },
+  
+  "account_security": {
+    "two_factor_auth": true,
+    "login_attempts_limit": 5,
+    "lockout_duration_minutes": 30,
+    "session_timeout_minutes": 60,
+    "password_history_count": 5,
+    "password_expiry_days": 90
+  },
+  
+  "account_management": {
+    "auto_suspend_inactive_days": 30,
+    "auto_delete_inactive_days": 180,
+    "data_retention_days": 365,
+    "export_data_on_delete": true,
+    "notification_before_deletion_days": 7
+  },
+  
+  "sample_accounts": [
+    {
+      "id": "acc_001",
+      "username": "tiktok_viewer_1",
+      "email": "viewer1@temp-mail.com",
+      "password": "hashed_password_1",
+      "balance": 50.0,
+      "tier": "pro",
+      "status": "active",
+      "created_at": "2024-01-01T10:00:00Z",
+      "last_login": "2024-01-15T14:30:00Z",
+      "total_orders": 25,
+      "total_spent": 125.50
+    },
+    {
+      "id": "acc_002",
+      "username": "business_account",
+      "email": "business@company.com",
+      "password": "hashed_password_2",
+      "balance": 200.0,
+      "tier": "enterprise",
+      "status": "active",
+      "created_at": "2024-01-05T09:15:00Z",
+      "last_login": "2024-01-15T16:45:00Z",
+      "total_orders": 120,
+      "total_spent": 850.75
+    },
+    {
+      "id": "acc_003",
+      "username": "free_user",
+      "email": "freeuser@email.com",
+      "password": "hashed_password_3",
+      "balance": 0.0,
+      "tier": "free",
+      "status": "inactive",
+      "created_at": "2024-01-10T11:30:00Z",
+      "last_login": "2024-01-12T08:20:00Z",
+      "total_orders": 3,
+      "total_spent": 0.0
+    }
+  ],
+  
+  "account_actions": {
+    "allowed_actions": [
+      "deposit",
+      "withdraw",
+      "upgrade_tier",
+      "change_password",
+      "update_email",
+      "enable_2fa",
+      "export_data",
+      "delete_account"
+    ],
+    "restricted_actions": [
+      "transfer_funds",
+      "create_subaccounts",
+      "bulk_operations"
+    ]
+  },
+  
+  "account_notifications": {
+    "email_notifications": {
+      "welcome_email": true,
+      "order_confirmation": true,
+      "payment_received": true,
+      "low_balance": true,
+      "suspicious_activity": true,
+      "account_suspended": true
+    },
+    "telegram_notifications": {
+      "order_updates": true,
+      "balance_updates": true,
+      "security_alerts": true
+    },
+    "sms_notifications": {
+      "two_factor_codes": true,
+      "critical_alerts": false
+    }
+  },
+  
+  "account_analytics": {
+    "tracking_enabled": true,
+    "tracked_metrics": [
+      "login_frequency",
+      "order_patterns",
+      "spending_habits",
+      "preferred_payment_method",
+      "device_usage",
+      "geographic_location"
+    ],
+    "privacy_compliance": {
+      "gdpr_compliant": true,
+      "data_anonymization": true,
+      "opt_out_available": true
+    }
+  }
+}

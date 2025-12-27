@@ -1,0 +1,22 @@
+rotation:
+  strategy: "round_robin"  # or "random", "weighted"
+  
+  health_check:
+    enabled: true
+    check_url: "https://tiktok.com"
+    timeout: 10
+    interval: 300
+  
+  failure_handling:
+    max_consecutive_failures: 3
+    ban_duration_minutes: 60
+    auto_replace: true
+  
+  geographic_distribution:
+    enabled: true
+    target_countries:
+      - "US"
+      - "GB"
+      - "DE"
+      - "FR"
+    avoid_concentration: true

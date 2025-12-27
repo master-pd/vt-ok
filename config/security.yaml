@@ -1,0 +1,23 @@
+security:
+  cors:
+    enabled: true
+    origins:
+      - "https://yourdomain.com"
+      - "https://webapp.yourdomain.com"
+  
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+    requests_per_hour: 1000
+    
+  csrf:
+    enabled: true
+    secret: "your_csrf_secret"
+    
+  xss_protection:
+    enabled: true
+    mode: "block"
+    
+  content_security_policy:
+    enabled: true
+    policy: "default-src 'self'"
