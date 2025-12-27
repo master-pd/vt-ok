@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if error_code %}{{ error_code }} - {% endif %}Error - TikTok Views Bot</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Error Page CSS -->
+    <style>
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            padding: 2rem;
+        }
+        
+        .error-card {
+            background: var(--gradient-dark);
+            border-radius: var(--border-radius-xl);
+            padding: 3rem;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: var(--shadow-xl);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .error-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(220, 53, 69, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3.5rem;
+            color: var(--danger-color);
+            border: 4px solid var(--danger-color);
+        }
+        
+        .error-code {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--light-color);
+        }
+        
+        .error-message {
+            font-size: 1.25rem;
+            color: var(--gray-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-details {
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            border-left: 4px solid var(--danger-color);
+        }
+        
+        .error-details pre {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: var(--border-radius-md);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .tech-details {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+        }
+        
+        .tech-details h4 {
+            margin-bottom: 1rem;
+            color: var(--gray-color);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tech-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--border-radius-md);
+            padding: 1rem;
+        }
+        
+        .tech-label {
+            font-size: 0.75rem;
+            color: var(--gray-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .tech-value {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            word-break: break-all;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        .shake {
+            animation: shake 0.5s ease;
+        }
+        
+        .countdown {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-md);
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        @media (max-width: 768px) {
+            .error-card {
+                padding: 2rem;
+            }
+            
+            .error-code {
+                font-size: 3.5rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+            }
+            
+            .error-actions .btn {
+                width: 100%;
+            }
+        }
+        
+        /* Specific error types */
+        .error-404 .error-icon {
+            background: rgba(255, 193, 7, 0.2);
+            border-color: var(--warning-color);
+            color: var(--warning-color);
+        }
+        
+        .error-404 .error-code {
+            background: linear-gradient(135deg, #ffc107 0%, #ffd54f 100%);
+        }
+        
+        .error-403 .error-icon {
+            background: rgba(108, 117, 125, 0.2);
+            border-color: var(--gray-color);
+            color: var(--gray-color);
+        }
+        
+        .error-403 .error-code {
+            background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+        }
+        
+        .error-500 .error-icon {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+        }
+        
+        .error-500 .error-code {
+            background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+        }
+        
+        .error-maintenance .error-icon {
+            background: rgba(23, 162, 184, 0.2);
+            border-color: var(--info-color);
+            color: var(--info-color);
+        }
+        
+        .error-maintenance .error-code {
+            background: linear-gradient(135deg, #17a2b8 0%, #5bc0de 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-card {% if error_code %}error-{{ error_code }}{% elif error_type %}error-{{ error_type }}{% endif %}">
+            <div class="error-icon">
+                {% if error_code == 404 %}
+                <i class="fas fa-map-signs"></i>
+                {% elif error_code == 403 %}
+                <i class="fas fa-ban"></i>
+                {% elif error_code == 500 %}
+                <i class="fas fa-exclamation-triangle"></i>
+                {% elif error_type == 'maintenance' %}
+                <i class="fas fa-tools"></i>
+                {% else %}
+                <i class="fas fa-exclamation-circle"></i>
+                {% endif %}
+            </div>
+            
+            {% if error_code %}
+            <div class="error-code">{{ error_code }}</div>
+            {% endif %}
+            
+            <h1 class="error-title">
+                {% if error_title %}
+                {{ error_title }}
+                {% elif error_code == 404 %}
+                Page Not Found
+                {% elif error_code == 403 %}
+                Access Denied
+                {% elif error_code == 500 %}
+                Internal Server Error
+                {% elif error_type == 'maintenance' %}
+                System Maintenance
+                {% else %}
+                Something Went Wrong
+                {% endif %}
+            </h1>
+            
+            <p class="error-message">
+                {% if error_message %}
+                {{ error_message }}
+                {% elif error_code == 404 %}
+                The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+                {% elif error_code == 403 %}
+                You don't have permission to access this resource. Please contact the administrator if you believe this is an error.
+                {% elif error_code == 500 %}
+                An unexpected error occurred on our server. Our team has been notified and is working on a fix.
+                {% elif error_type == 'maintenance' %}
+                We're currently performing scheduled maintenance. Please check back soon.
+                {% else %}
+                An unexpected error occurred. Please try again later or contact support if the problem persists.
+                {% endif %}
+            </p>
+            
+            {% if error_details and debug %}
+            <div class="error-details">
+                <h4>Error Details:</h4>
+                <pre>{{ error_details }}</pre>
+            </div>
+            {% endif %}
+            
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    Go to Homepage
+                </a>
+                
+                <a href="javascript:history.back()" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i>
+                    Go Back
+                </a>
+                
+                {% if error_type != 'maintenance' %}
+                <a href="/contact" class="btn btn-outline">
+                    <i class="fas fa-headset"></i>
+                    Contact Support
+                </a>
+                
+                <button class="btn btn-outline" onclick="location.reload()">
+                    <i class="fas fa-redo"></i>
+                    Reload Page
+                </button>
+                {% endif %}
+            </div>
+            
+            {% if error_type == 'maintenance' %}
+            <div class="alert alert-info" style="margin-top: 2rem; text-align: left;">
+                <i class="fas fa-clock"></i>
+                <strong>Estimated Maintenance Time:</strong> {{ maintenance_time }}
+                <div class="countdown" id="countdown">
+                    Returning in <span id="countdown-timer">300</span> seconds
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-info" style="margin-top: 2rem; text-align: left;">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Quick Tips:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Check your internet connection</li>
+                    <li>Clear your browser cache</li>
+                    <li>Try using a different browser</li>
+                    <li>Disable any browser extensions</li>
+                </ul>
+            </div>
+            {% endif %}
+            
+            {% if debug %}
+            <div class="tech-details">
+                <h4>Technical Information</h4>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-label">Error ID</div>
+                        <div class="tech-value">{{ error_id }}</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-label">Timestamp</div>
+                        <div class="tech-value">{{ timestamp }}</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-label">Request ID</div>
+                        <div class="tech-value">{{ request_id }}</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-label">User Agent</div>
+                        <div class="tech-value">{{ user_agent }}</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-label">IP Address</div>
+                        <div class="tech-value">{{ ip_address }}</div>
+                    </div>
+                    
+                    <div class="tech-item">
+                        <div class="tech-label">Path</div>
+                        <div class="tech-value">{{ request_path }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <div style="margin-top: 2rem; color: var(--gray-color); font-size: 0.875rem;">
+                <p>If you continue to experience issues, please contact our support team:</p>
+                <p>
+                    <i class="fas fa-envelope"></i> support@tiktokviewsbot.com |
+                    <i class="fab fa-telegram"></i> @tiktokviews_support
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Add shake animation to error icon
+            $('.error-icon').addClass('shake');
+            
+            // Auto-redirect for maintenance pages
+            {% if error_type == 'maintenance' %}
+            let countdown = 300; // 5 minutes
+            
+            function updateCountdown() {
+                $('#countdown-timer').text(countdown);
+                if (countdown <= 0) {
+                    window.location.href = '/';
+                } else {
+                    countdown--;
+                    setTimeout(updateCountdown, 1000);
+                }
+            }
+            
+            updateCountdown();
+            
+            // Check server status every 30 seconds
+            setInterval(function() {
+                $.ajax({
+                    url: '/api/health',
+                    method: 'GET',
+                    success: function(data) {
+                        if (data.status === 'online') {
+                            window.location.href = '/';
+                        }
+                    }
+                });
+            }, 30000);
+            {% endif %}
+            
+            // Report error to analytics
+            {% if error_code %}
+            try {
+                // Send error report to analytics (if configured)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'exception', {
+                        'description': '{{ error_code }} - {{ error_title }}',
+                        'fatal': {{ 'true' if error_code >= 500 else 'false' }}
+                    });
+                }
+            } catch (e) {
+                console.error('Failed to report error:', e);
+            }
+            {% endif %}
+            
+            // Copy error details to clipboard
+            function copyErrorDetails() {
+                const details = `Error: {{ error_code }}\nMessage: {{ error_message }}\nTime: {{ timestamp }}\nURL: ${window.location.href}`;
+                navigator.clipboard.writeText(details).then(() => {
+                    alert('Error details copied to clipboard!');
+                });
+            }
+            
+            // Add copy button if error details exist
+            {% if error_details %}
+            $('.error-details').append(`
+                <button class="btn btn-sm btn-outline" style="margin-top: 1rem;" onclick="copyErrorDetails()">
+                    <i class="fas fa-copy"></i> Copy Error Details
+                </button>
+            `);
+            {% endif %}
+            
+            // Keyboard shortcuts
+            $(document).keydown(function(e) {
+                // Alt + H to go home
+                if (e.altKey && e.key === 'h') {
+                    window.location.href = '/';
+                }
+                
+                // Alt + B to go back
+                if (e.altKey && e.key === 'b') {
+                    history.back();
+                }
+                
+                // Alt + R to reload
+                if (e.altKey && e.key === 'r') {
+                    location.reload();
+                }
+                
+                // Alt + S for support
+                if (e.altKey && e.key === 's') {
+                    window.location.href = '/contact';
+                }
+            });
+            
+            // Show keyboard shortcuts help on Ctrl+?
+            $(document).keydown(function(e) {
+                if (e.ctrlKey && e.key === '?') {
+                    alert(`Keyboard Shortcuts:\n\nAlt+H - Go Home\nAlt+B - Go Back\nAlt+R - Reload Page\nAlt+S - Support\nCtrl+? - This help`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

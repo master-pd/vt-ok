@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - TikTok Views Bot</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <!-- Payment Success CSS -->
+    <style>
+        .payment-success-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            padding: 2rem;
+        }
+        
+        .payment-success-card {
+            background: var(--gradient-dark);
+            border-radius: var(--border-radius-xl);
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: var(--shadow-xl);
+            animation: slideUp 0.5s ease;
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        .success-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .success-message {
+            font-size: 1.25rem;
+            color: var(--gray-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .payment-details {
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            color: var(--gray-color);
+        }
+        
+        .detail-value {
+            font-weight: 600;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .whats-next {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .next-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .step-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-4px);
+        }
+        
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 20px rgba(255, 0, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 80, 0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .payment-success-card {
+                padding: 2rem;
+            }
+            
+            .success-title {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-success-container">
+        <div class="payment-success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h1 class="success-title">Payment Successful!</h1>
+            
+            <p class="success-message">
+                Thank you for your payment. Your balance has been updated and you can now start ordering views for your TikTok videos.
+            </p>
+            
+            <div class="payment-details">
+                <div class="detail-item">
+                    <span class="detail-label">Payment ID:</span>
+                    <span class="detail-value">#{{ payment_id }}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Amount:</span>
+                    <span class="detail-value">${{ amount }}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Payment Method:</span>
+                    <span class="detail-value">{{ payment_method }}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Date & Time:</span>
+                    <span class="detail-value">{{ timestamp }}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Transaction ID:</span>
+                    <span class="detail-value">{{ transaction_id }}</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">New Balance:</span>
+                    <span class="detail-value" style="color: var(--success-color);">${{ new_balance }}</span>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="/dashboard" class="btn btn-primary">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Go to Dashboard
+                </a>
+                
+                <a href="/buy-views" class="btn btn-secondary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Buy Views Now
+                </a>
+                
+                <a href="/transactions" class="btn btn-outline">
+                    <i class="fas fa-receipt"></i>
+                    View Receipt
+                </a>
+            </div>
+            
+            <div class="whats-next">
+                <h3 style="margin-bottom: 1rem;">What's Next?</h3>
+                <div class="next-steps">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4>1. Upload Video</h4>
+                        <p>Go to TikTok and upload your video</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h4>2. Copy Link</h4>
+                        <p>Copy your TikTok video URL</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>3. Order Views</h4>
+                        <p>Paste link and order views</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info" style="margin-top: 2rem; text-align: left;">
+                <i class="fas fa-info-circle"></i>
+                <strong>Note:</strong> Your receipt has been sent to your email. If you have any questions, please contact our support team.
+            </div>
+            
+            <div class="alert alert-success" style="margin-top: 1rem; text-align: left;">
+                <i class="fas fa-gift"></i>
+                <strong>Bonus:</strong> As a thank you, we've added 50 bonus views to your account!
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Auto redirect to dashboard after 30 seconds
+            setTimeout(function() {
+                window.location.href = '/dashboard';
+            }, 30000);
+            
+            // Print receipt
+            function printReceipt() {
+                window.print();
+            }
+            
+            // Download receipt
+            function downloadReceipt() {
+                window.open('/api/receipt/{{ payment_id }}?format=pdf', '_blank');
+            }
+            
+            // Share success
+            function shareSuccess() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Payment Successful!',
+                        text: `I just added $${ {{ amount }} } to my TikTok Views Bot account!`,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    const text = `Payment Successful! I just added $${ {{ amount }} } to my TikTok Views Bot account! ${window.location.href}`;
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('Success message copied to clipboard!');
+                    });
+                }
+            }
+            
+            // Add event listeners
+            $('.btn-print').click(printReceipt);
+            $('.btn-download').click(downloadReceipt);
+            $('.btn-share').click(shareSuccess);
+            
+            // Confetti animation
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+                
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 50,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 }
+                    });
+                    
+                    confetti({
+                        particleCount: 50,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 }
+                    });
+                }, 250);
+            }
+        });
+    </script>
+    
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</body>
+</html>
